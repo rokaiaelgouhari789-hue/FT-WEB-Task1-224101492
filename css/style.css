@@ -1,0 +1,379 @@
+/* 1. Universal Box Sizing */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Color Variables on :root */
+:root {
+  /* Light Mode Colors */
+  --bg-color: #f8fafc;
+  --text-color: #1e293b;
+  --header-bg: #ffffff;
+  --bar-bg: #f1f5f9;
+  --card-bg: #ffffff;
+  --card-hover-bg: #e0f2fe;
+  --border-color: #e2e8f0;
+  --primary-color: #2563eb;
+  --primary-hover: #1d4ed8;
+  --btn-text: #ffffff;
+  --input-bg: #ffffff;
+  --input-border: #cbd5e1;
+  --footer-bg: #ffffff;
+  --footer-text: #64748b;
+  --shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+
+  /* Dark Mode Colors (Stored on :root) */
+  --dark-bg-color: #0f172a;
+  --dark-text-color: #f1f5f9;
+  --dark-header-bg: #1e293b;
+  --dark-bar-bg: #273549;
+  --dark-card-bg: #1e293b;
+  --dark-card-hover-bg: #2e3e56;
+  --dark-border-color: #334155;
+  --dark-primary-color: #3b82f6;
+  --dark-primary-hover: #60a5fa;
+  --dark-btn-text: #ffffff;
+  --dark-input-bg: #0b1120;
+  --dark-input-border: #475569;
+  --dark-footer-bg: #1e293b;
+  --dark-footer-text: #94a3b8;
+  --dark-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Body Base Styles */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 3. Header & Heading */
+header {
+  background-color: var(--header-bg);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1.5rem 2rem 1rem;
+  transition: background-color 0.3s ease;
+}
+
+header h1 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+/* 4. Bar: Flexbox (Name on left, links on right) */
+.bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bar-bg);
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.bar-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.bar-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.bar-links a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.bar-links a:hover {
+  color: var(--primary-color);
+}
+
+/* Theme Toggle Button */
+#theme-btn {
+  background-color: var(--primary-color);
+  color: var(--btn-text);
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+#theme-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+#theme-btn:active {
+  transform: scale(0.98);
+}
+
+/* 5. Main Content Wrapper */
+main {
+  flex: 1;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+}
+
+/* Profile Photo & Bio (Round Photo) */
+.profile-section {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.profile-photo {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--primary-color);
+  box-shadow: var(--shadow);
+  margin-bottom: 1rem;
+}
+
+.bio {
+  max-width: 650px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: var(--text-color);
+}
+
+/* 6. Three Cards in a Row: Flexbox with gap */
+.cards-section {
+  margin-bottom: 3rem;
+}
+
+.cards-section h2,
+.form-section h2 {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.cards-container {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+}
+
+.card {
+  flex: 1;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1.75rem 1.25rem;
+  box-shadow: var(--shadow);
+  transition: background-color 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+}
+
+/* Bonus: Hover colour on card */
+.card:hover {
+  background-color: var(--card-hover-bg);
+  transform: translateY(-4px);
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  color: var(--primary-color);
+  margin-bottom: 0.75rem;
+}
+
+.card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* 7. Form Section */
+.form-section {
+  max-width: 550px;
+  margin: 0 auto 2rem;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.form-group input {
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--input-border);
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.form-group input:focus {
+  border-color: var(--primary-color);
+}
+
+.submit-btn {
+  width: 100%;
+  background-color: var(--primary-color);
+  color: var(--btn-text);
+  border: none;
+  padding: 0.85rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.submit-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+.greeting-message {
+  margin-top: 1rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.greeting-message.error {
+  color: #ef4444;
+}
+
+/* 8. Footer: Copyright line */
+footer {
+  background-color: var(--footer-bg);
+  border-top: 1px solid var(--border-color);
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--footer-text);
+  margin-top: auto;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 9. Dark Mode: Activated via class 'dark' on body */
+body.dark {
+  background-color: var(--dark-bg-color);
+  color: var(--dark-text-color);
+}
+
+body.dark header {
+  background-color: var(--dark-header-bg);
+  border-bottom-color: var(--dark-border-color);
+}
+
+body.dark header h1 {
+  color: var(--dark-primary-color);
+}
+
+body.dark .bar {
+  background-color: var(--dark-bar-bg);
+  border-color: var(--dark-border-color);
+}
+
+body.dark .bar a {
+  color: var(--dark-text-color);
+}
+
+body.dark .bar a:hover {
+  color: var(--dark-primary-color);
+}
+
+body.dark #theme-btn {
+  background-color: var(--dark-primary-color);
+}
+
+body.dark #theme-btn:hover {
+  background-color: var(--dark-primary-hover);
+}
+
+body.dark .profile-photo {
+  border-color: var(--dark-primary-color);
+  box-shadow: var(--dark-shadow);
+}
+
+body.dark .card {
+  background-color: var(--dark-card-bg);
+  border-color: var(--dark-border-color);
+  box-shadow: var(--dark-shadow);
+}
+
+body.dark .card:hover {
+  background-color: var(--dark-card-hover-bg);
+}
+
+body.dark .card h3 {
+  color: var(--dark-primary-color);
+}
+
+body.dark .form-section {
+  background-color: var(--dark-card-bg);
+  border-color: var(--dark-border-color);
+  box-shadow: var(--dark-shadow);
+}
+
+body.dark .form-group input {
+  background-color: var(--dark-input-bg);
+  color: var(--dark-text-color);
+  border-color: var(--dark-input-border);
+}
+
+body.dark .submit-btn {
+  background-color: var(--dark-primary-color);
+}
+
+body.dark .submit-btn:hover {
+  background-color: var(--dark-primary-hover);
+}
+
+body.dark .greeting-message {
+  color: var(--dark-primary-color);
+}
+
+body.dark footer {
+  background-color: var(--dark-footer-bg);
+  color: var(--dark-footer-text);
+  border-top-color: var(--dark-border-color);
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 768px) {
+  .bar {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+  }
+  
+  .cards-container {
+    flex-direction: column;
+  }
+}
